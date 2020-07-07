@@ -27,17 +27,11 @@ const Gameboard = () => {
 
     if (orientation === 0) {
       for (let i = x; i < x + ship.length; i++) {
-        if (grid[i][y] !== "") {
-          return false;
-        }
         grid[i][y] = ship;
         ship.setShipCoords(i, y);
       }
     } else if (orientation === 1) {
       for (let i = y; i < y + ship.length; i++) {
-        if (grid[x][i] !== "") {
-          return false;
-        }
         grid[x][i] = ship;
         ship.setShipCoords(x, i);
       }
@@ -45,47 +39,23 @@ const Gameboard = () => {
     return true;
   };
 
-  const flatten = (arr) => {
-    return arr.join(" |-| ");
-  };
-
   const receiveAttack = (x, y) => {
     // Check if ship is at position
     if (grid[x][y] !== "") {
       let ship = grid[x][y];
       let shipCoords = ship.getShipCoords();
-      let arrSearch = shipCoords.map((row) => {
-        return flatten(row);
-      });
-      let pos = arrSearch.indexOf(flatten([x, y]));
-      if (!ship.isHit(pos)) {
-        ship.hit(pos);
+      let pos = shipCoords.indexOf(JSON.stringify([x, y]));
+      console.log(pos);
+      if (!ship.isHit(x)) {
+        ship.hit(x);
         return true;
       }
     }
-    missedShot.push([x, y]);
+    missedShot = [x, y];
     return false;
   };
 
-  const allShipSunk = (ships) => {
-    for (let i = 0; i < ships.length; i++) {
-      if (!ships[i].isSunk()) {
-        return false;
-      }
-    }
-
-    return true;
-  };
-
-  return {
-    grid,
-    missedShot,
-    getGrid,
-    placeShip,
-    receiveAttack,
-    getMissedShot,
-    allShipSunk,
-  };
+  return { grid, missedShot, getGrid, placeShip, receiveAttack, getMissedShot };
 };
 
 export default Gameboard;

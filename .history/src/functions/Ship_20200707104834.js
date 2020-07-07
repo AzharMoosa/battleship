@@ -1,7 +1,7 @@
 const Ship = (length) => {
   // Fills ship with false
   const ship = new Array(length).fill(false);
-  let shipCoords = [];
+  const shipCoords = [];
 
   // Hit
   const hit = (pos) => (ship[pos] = true);
@@ -24,7 +24,7 @@ const Ship = (length) => {
     shipCoords.push([x, y]);
   };
 
-  const getShipCoords = (x, y) => {
+  const getShipCoords = () => {
     return shipCoords;
   };
 

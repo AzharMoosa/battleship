@@ -21,10 +21,10 @@ const Ship = (length) => {
   };
 
   const setShipCoords = (x, y) => {
-    shipCoords.push([x, y]);
+    shipCoords.push(x, y);
   };
 
-  const getShipCoords = (x, y) => {
+  const getShipEnd = (x, y) => {
     return shipCoords;
   };
 
@@ -36,7 +36,7 @@ const Ship = (length) => {
     isHit,
     getShip,
     setShipCoords,
-    getShipCoords,
+    getShipEnd,
   };
 };
 

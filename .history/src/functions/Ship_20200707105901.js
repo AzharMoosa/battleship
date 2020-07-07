@@ -21,7 +21,7 @@ const Ship = (length) => {
   };
 
   const setShipCoords = (x, y) => {
-    shipCoords.push([x, y]);
+    shipCoords.push(x, y);
   };
 
   const getShipCoords = (x, y) => {

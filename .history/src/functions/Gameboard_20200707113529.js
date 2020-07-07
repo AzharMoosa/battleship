@@ -69,6 +69,7 @@ const Gameboard = () => {
 
   const allShipSunk = (ships) => {
     for (let i = 0; i < ships.length; i++) {
+      console.log(ships[i]);
       if (!ships[i].isSunk()) {
         return false;
       }

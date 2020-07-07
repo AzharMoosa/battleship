@@ -1,7 +1,7 @@
 const Ship = (length) => {
   // Fills ship with false
   const ship = new Array(length).fill(false);
-  let shipCoords = [];
+  let shipEnd = [];
 
   // Hit
   const hit = (pos) => (ship[pos] = true);
@@ -20,12 +20,8 @@ const Ship = (length) => {
     return ship;
   };
 
-  const setShipCoords = (x, y) => {
-    shipCoords.push([x, y]);
-  };
-
-  const getShipCoords = (x, y) => {
-    return shipCoords;
+  const setShipEnd = () => {
+    shipEnd = [];
   };
 
   return {
@@ -35,8 +31,6 @@ const Ship = (length) => {
     isSunk,
     isHit,
     getShip,
-    setShipCoords,
-    getShipCoords,
   };
 };
 

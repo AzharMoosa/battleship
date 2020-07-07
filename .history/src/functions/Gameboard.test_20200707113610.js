@@ -60,6 +60,6 @@ test("all ship sunk", () => {
   board.receiveAttack(0, 0);
   board.receiveAttack(1, 0);
   board.receiveAttack(0, 1);
-  board.receiveAttack(1, 1);
+  board.receiveAttack(0, 0);
   expect(board.allShipSunk([ship, shipTwo])).toEqual(true);
 });

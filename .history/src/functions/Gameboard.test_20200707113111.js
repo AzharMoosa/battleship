@@ -58,8 +58,10 @@ test("all ship sunk", () => {
   board.placeShip(0, 0, ship, 0);
   board.placeShip(0, 1, shipTwo, 0);
   board.receiveAttack(0, 0);
-  board.receiveAttack(1, 0);
   board.receiveAttack(0, 1);
-  board.receiveAttack(1, 1);
-  expect(board.allShipSunk([ship, shipTwo])).toEqual(true);
+  board.receiveAttack(7, 0);
+  expect(board.getMissedShot()).toEqual([
+    [4, 0],
+    [7, 0],
+  ]);
 });

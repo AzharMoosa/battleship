@@ -31,6 +31,7 @@ const Ship = (length) => {
   return {
     ship,
     length,
+    pos,
     hit,
     isSunk,
     isHit,

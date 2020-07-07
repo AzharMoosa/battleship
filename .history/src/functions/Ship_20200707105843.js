@@ -20,12 +20,12 @@ const Ship = (length) => {
     return ship;
   };
 
-  const setShipCoords = (x, y) => {
-    shipCoords.push([x, y]);
+  const setShipEnd = (x, y) => {
+    shipCoords.push(x, y);
   };
 
-  const getShipCoords = (x, y) => {
-    return shipCoords;
+  const getShipEnd = (x, y) => {
+    return shipEnd;
   };
 
   return {
@@ -35,8 +35,8 @@ const Ship = (length) => {
     isSunk,
     isHit,
     getShip,
-    setShipCoords,
-    getShipCoords,
+    setShipEnd,
+    getShipEnd,
   };
 };
 

@@ -50,16 +50,3 @@ test("missed shots", () => {
     [7, 0],
   ]);
 });
-
-test("all ship sunk", () => {
-  const board = new Gameboard();
-  const ship = new Ship(2);
-  const shipTwo = new Ship(2);
-  board.placeShip(0, 0, ship, 0);
-  board.placeShip(0, 1, shipTwo, 0);
-  board.receiveAttack(0, 0);
-  board.receiveAttack(1, 0);
-  board.receiveAttack(0, 1);
-  board.receiveAttack(1, 1);
-  expect(board.allShipSunk([ship, shipTwo])).toEqual(true);
-});

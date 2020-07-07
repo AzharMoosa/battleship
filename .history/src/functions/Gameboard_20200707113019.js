@@ -27,7 +27,7 @@ const Gameboard = () => {
 
     if (orientation === 0) {
       for (let i = x; i < x + ship.length; i++) {
-        if (grid[i][y] !== "") {
+        if (grid[i][y] !== " ") {
           return false;
         }
         grid[i][y] = ship;
@@ -35,7 +35,7 @@ const Gameboard = () => {
       }
     } else if (orientation === 1) {
       for (let i = y; i < y + ship.length; i++) {
-        if (grid[x][i] !== "") {
+        if (grid[x]pi] !== " ") {
           return false;
         }
         grid[x][i] = ship;

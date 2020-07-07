@@ -27,17 +27,11 @@ const Gameboard = () => {
 
     if (orientation === 0) {
       for (let i = x; i < x + ship.length; i++) {
-        if (grid[i][y] !== "") {
-          return false;
-        }
         grid[i][y] = ship;
         ship.setShipCoords(i, y);
       }
     } else if (orientation === 1) {
       for (let i = y; i < y + ship.length; i++) {
-        if (grid[x][i] !== "") {
-          return false;
-        }
         grid[x][i] = ship;
         ship.setShipCoords(x, i);
       }
@@ -70,11 +64,8 @@ const Gameboard = () => {
   const allShipSunk = (ships) => {
     for (let i = 0; i < ships.length; i++) {
       if (!ships[i].isSunk()) {
-        return false;
       }
     }
-
-    return true;
   };
 
   return {
