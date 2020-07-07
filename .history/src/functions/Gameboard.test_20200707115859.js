@@ -15,33 +15,33 @@ test("create column", () => {
 
 test("place ships", () => {
   const board = new Gameboard();
-  const ship = new Ship("Submarine", 3);
+  const ship = new Ship(3);
   expect(board.placeShip(0, 0, ship, 0)).toEqual(true);
 });
 
 test("place invalid ship", () => {
   const board = new Gameboard();
-  const ship = new Ship("Submarine", 3);
+  const ship = new Ship(3);
   expect(board.placeShip(7, 0, ship, 0)).toEqual(false);
 });
 
 test("hit ship", () => {
   const board = new Gameboard();
-  const ship = new Ship("Submarine", 3);
+  const ship = new Ship(3);
   board.placeShip(5, 0, ship, 1);
   expect(board.receiveAttack(5, 2)).toEqual(true);
 });
 
 test("miss ship", () => {
   const board = new Gameboard();
-  const ship = new Ship("Submarine", 3);
+  const ship = new Ship(3);
   board.placeShip(0, 0, ship, 0);
   expect(board.receiveAttack(4, 0)).toEqual(false);
 });
 
 test("missed shots", () => {
   const board = new Gameboard();
-  const ship = new Ship("Submarine", 3);
+  const ship = new Ship(3);
   board.placeShip(0, 0, ship, 0);
   board.receiveAttack(4, 0);
   board.receiveAttack(7, 0);
@@ -53,8 +53,8 @@ test("missed shots", () => {
 
 test("all ship sunk", () => {
   const board = new Gameboard();
-  const ship = new Ship("Destroyer", 2);
-  const shipTwo = new Ship("Destroyer", 2);
+  const ship = new Ship(2);
+  const shipTwo = new Ship(2);
   board.placeShip(0, 0, ship, 0);
   board.placeShip(0, 1, shipTwo, 0);
   board.receiveAttack(0, 0);

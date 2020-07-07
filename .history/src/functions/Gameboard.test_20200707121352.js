@@ -53,8 +53,8 @@ test("missed shots", () => {
 
 test("all ship sunk", () => {
   const board = new Gameboard();
-  const ship = new Ship("Destroyer", 2);
-  const shipTwo = new Ship("Destroyer", 2);
+  const ship = new Ship(2);
+  const shipTwo = new Ship(2);
   board.placeShip(0, 0, ship, 0);
   board.placeShip(0, 1, shipTwo, 0);
   board.receiveAttack(0, 0);
