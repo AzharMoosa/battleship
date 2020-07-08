@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
+
+:root {
+  --bg-primary: #00adb5;
+  --bg-light: #eeeeee;
+  --bg-dark: #222831;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Russo One", sans-serif;
+  background-color: var(--bg-primary);
+}
+
+.header {
+  text-align: center;
+}
+
+.header h1 {
+  color: var(--bg-light);
+  font-size: 100px;
+  text-transform: uppercase;
+  margin-top: 1rem;
+}
+
+.btn-primary {
+  width: 200px;
+  height: 60px;
+  font-family: "Russo One", sans-serif;
+  border-radius: 40px;
+  background-color: var(--bg-dark);
+  color: var(--bg-light);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 30px;
+  text-transform: uppercase;
+}
+
+.game-boards {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  width: 400px;
+}
+
+.square {
+  border: 1px solid #707070;
+  background-color: #fff;
+  width: 50px;
+  height: 50px;
+}
