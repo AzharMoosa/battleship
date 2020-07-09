@@ -118,7 +118,6 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
 }
 
 .coord-inputs {
@@ -317,10 +316,6 @@ body {
     border-radius: 20px;
     cursor: pointer;
   }
-
-  .start-content {
-    width: 300px;
-  }
 }
 
 @media (max-width: 375px) {
@@ -357,10 +352,5 @@ body {
 
   .winner-name {
     font-size: 30px;
-  }
-
-  .start-content {
-    margin: 2rem auto;
-    width: 250px;
   }
 }

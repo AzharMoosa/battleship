@@ -118,24 +118,24 @@ const Board = () => {
     setPlayerBoard(Gameboard());
     setComputerBoard(Gameboard());
     setPlayerTurn(true);
-    setGame(false);
+    setGame(true);
     let modal = document.querySelector(".modal");
     let overlay = document.querySelector(".overlay");
     let outcome = document.querySelector(".hit-miss-outcome");
     let start = document.querySelector(".start");
-    let startContent = document.querySelector(".start-content");
     modal.style.display = "none";
     overlay.style.display = "grid";
     outcome.innerHTML = "";
     start.style.display = "block";
-    startContent.style.border = "1px solid #888";
   };
 
   const gameOver = () => {
     if (playerBoard.allShipSunk(player.ships)) {
       displayModal("Computer");
+      setGame(false);
     } else if (computerBoard.allShipSunk(computer.ships)) {
       displayModal("Player");
+      setGame(false);
     }
   };
 

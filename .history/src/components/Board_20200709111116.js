@@ -123,12 +123,10 @@ const Board = () => {
     let overlay = document.querySelector(".overlay");
     let outcome = document.querySelector(".hit-miss-outcome");
     let start = document.querySelector(".start");
-    let startContent = document.querySelector(".start-content");
     modal.style.display = "none";
     overlay.style.display = "grid";
     outcome.innerHTML = "";
     start.style.display = "block";
-    startContent.style.border = "1px solid #888";
   };
 
   const gameOver = () => {

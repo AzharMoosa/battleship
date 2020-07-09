@@ -128,7 +128,7 @@ const Board = () => {
     overlay.style.display = "grid";
     outcome.innerHTML = "";
     start.style.display = "block";
-    startContent.style.border = "1px solid #888";
+    startContent.style.border = "1px solid #888;";
   };
 
   const gameOver = () => {

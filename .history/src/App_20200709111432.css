@@ -118,7 +118,6 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
 }
 
 .coord-inputs {
@@ -320,6 +319,7 @@ body {
 
   .start-content {
     width: 300px;
+    text-align: center;
   }
 }
 
@@ -357,10 +357,5 @@ body {
 
   .winner-name {
     font-size: 30px;
-  }
-
-  .start-content {
-    margin: 2rem auto;
-    width: 250px;
   }
 }

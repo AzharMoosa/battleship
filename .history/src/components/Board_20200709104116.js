@@ -27,6 +27,20 @@ const Board = () => {
     }
   };
 
+  // const startGame = () => {
+  //   playerBoard.placeShip(0, 0, player.ships[0], 1);
+  //   playerBoard.placeShip(4, 4, player.ships[1], 1);
+  //   playerBoard.placeShip(3, 0, player.ships[2], 1);
+  //   playerBoard.placeShip(5, 0, player.ships[3], 1);
+  //   playerBoard.placeShip(7, 0, player.ships[4], 1);
+
+  //   computerBoard.placeShip(0, 0, computer.ships[0], 0);
+  //   computerBoard.placeShip(4, 2, computer.ships[1], 0);
+  //   computerBoard.placeShip(0, 3, computer.ships[2], 0);
+  //   computerBoard.placeShip(3, 5, computer.ships[3], 0);
+  //   computerBoard.placeShip(0, 7, computer.ships[4], 0);
+  // };
+
   const placeShipOnBoard = (
     carrierX,
     carrierY,
@@ -40,55 +54,34 @@ const Board = () => {
     destroyerY
   ) => {
     let start = document.querySelector(".start");
-    let startContent = document.querySelector(".start-content");
-    let carrier = playerBoard.placeShip(
+    playerBoard.placeShip(
       parseInt(carrierX),
       parseInt(carrierY),
       player.ships[0],
       1
     );
-
-    let battleship = playerBoard.placeShip(
+    playerBoard.placeShip(
       parseInt(battleshipX),
       parseInt(battleshipY),
       player.ships[1],
       1
     );
-
-    let cruiser = playerBoard.placeShip(
+    playerBoard.placeShip(
       parseInt(cruiserX),
       parseInt(cruiserY),
       player.ships[2],
       1
     );
-
-    let submarine = playerBoard.placeShip(
-      parseInt(submarineX),
-      parseInt(submarineY),
-      player.ships[3],
-      1
-    );
-
-    let destoryer = playerBoard.placeShip(
-      parseInt(destroyerX),
-      parseInt(destroyerY),
-      player.ships[4],
-      1
-    );
+    playerBoard.placeShip(submarineX, submarineY, player.ships[3], 1);
+    playerBoard.placeShip(destroyerX, destroyerY, player.ships[4], 1);
 
     computerBoard.placeShip(0, 0, computer.ships[0], 0);
     computerBoard.placeShip(4, 2, computer.ships[1], 0);
     computerBoard.placeShip(0, 3, computer.ships[2], 0);
     computerBoard.placeShip(3, 5, computer.ships[3], 0);
     computerBoard.placeShip(0, 7, computer.ships[4], 0);
-
-    if (carrier && battleship && cruiser && submarine && destoryer) {
-      start.style.display = "none";
-      setGame(true);
-    } else {
-      setPlayerBoard(Gameboard());
-      startContent.style.border = "3px solid red";
-    }
+    start.style.display = "none";
+    setGame(true);
   };
 
   const getBoardElm = (elm) => {
@@ -118,24 +111,24 @@ const Board = () => {
     setPlayerBoard(Gameboard());
     setComputerBoard(Gameboard());
     setPlayerTurn(true);
-    setGame(false);
+    setGame(true);
     let modal = document.querySelector(".modal");
     let overlay = document.querySelector(".overlay");
     let outcome = document.querySelector(".hit-miss-outcome");
     let start = document.querySelector(".start");
-    let startContent = document.querySelector(".start-content");
     modal.style.display = "none";
     overlay.style.display = "grid";
     outcome.innerHTML = "";
     start.style.display = "block";
-    startContent.style.border = "1px solid #888";
   };
 
   const gameOver = () => {
     if (playerBoard.allShipSunk(player.ships)) {
       displayModal("Computer");
+      setGame(false);
     } else if (computerBoard.allShipSunk(computer.ships)) {
       displayModal("Player");
+      setGame(false);
     }
   };
 

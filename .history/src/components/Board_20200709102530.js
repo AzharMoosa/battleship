@@ -16,7 +16,6 @@ const Board = () => {
   const [playerBoard, setPlayerBoard] = useState(Gameboard());
   const [computerBoard, setComputerBoard] = useState(Gameboard());
   const [playerTurn, setPlayerTurn] = useState(true);
-  const [game, setGame] = useState(false);
 
   const getOutcome = (hit) => {
     let outcome = document.querySelector(".hit-miss-outcome");
@@ -26,6 +25,20 @@ const Board = () => {
       outcome.innerHTML = "Miss!";
     }
   };
+
+  // const startGame = () => {
+  //   playerBoard.placeShip(0, 0, player.ships[0], 1);
+  //   playerBoard.placeShip(4, 4, player.ships[1], 1);
+  //   playerBoard.placeShip(3, 0, player.ships[2], 1);
+  //   playerBoard.placeShip(5, 0, player.ships[3], 1);
+  //   playerBoard.placeShip(7, 0, player.ships[4], 1);
+
+  //   computerBoard.placeShip(0, 0, computer.ships[0], 0);
+  //   computerBoard.placeShip(4, 2, computer.ships[1], 0);
+  //   computerBoard.placeShip(0, 3, computer.ships[2], 0);
+  //   computerBoard.placeShip(3, 5, computer.ships[3], 0);
+  //   computerBoard.placeShip(0, 7, computer.ships[4], 0);
+  // };
 
   const placeShipOnBoard = (
     carrierX,
@@ -39,56 +52,17 @@ const Board = () => {
     destroyerX,
     destroyerY
   ) => {
-    let start = document.querySelector(".start");
-    let startContent = document.querySelector(".start-content");
-    let carrier = playerBoard.placeShip(
-      parseInt(carrierX),
-      parseInt(carrierY),
-      player.ships[0],
-      1
-    );
-
-    let battleship = playerBoard.placeShip(
-      parseInt(battleshipX),
-      parseInt(battleshipY),
-      player.ships[1],
-      1
-    );
-
-    let cruiser = playerBoard.placeShip(
-      parseInt(cruiserX),
-      parseInt(cruiserY),
-      player.ships[2],
-      1
-    );
-
-    let submarine = playerBoard.placeShip(
-      parseInt(submarineX),
-      parseInt(submarineY),
-      player.ships[3],
-      1
-    );
-
-    let destoryer = playerBoard.placeShip(
-      parseInt(destroyerX),
-      parseInt(destroyerY),
-      player.ships[4],
-      1
-    );
+    playerBoard.placeShip(carrierX, carrierY, player.ships[0], 1);
+    playerBoard.placeShip(battleshipX, battleshipY, player.ships[1], 1);
+    playerBoard.placeShip(cruiserX, cruiserY, player.ships[2], 1);
+    playerBoard.placeShip(submarineX, submarineY, player.ships[3], 1);
+    playerBoard.placeShip(destroyerX, destroyerY, player.ships[4], 1);
 
     computerBoard.placeShip(0, 0, computer.ships[0], 0);
     computerBoard.placeShip(4, 2, computer.ships[1], 0);
     computerBoard.placeShip(0, 3, computer.ships[2], 0);
     computerBoard.placeShip(3, 5, computer.ships[3], 0);
     computerBoard.placeShip(0, 7, computer.ships[4], 0);
-
-    if (carrier && battleship && cruiser && submarine && destoryer) {
-      start.style.display = "none";
-      setGame(true);
-    } else {
-      setPlayerBoard(Gameboard());
-      startContent.style.border = "3px solid red";
-    }
   };
 
   const getBoardElm = (elm) => {
@@ -118,17 +92,12 @@ const Board = () => {
     setPlayerBoard(Gameboard());
     setComputerBoard(Gameboard());
     setPlayerTurn(true);
-    setGame(false);
     let modal = document.querySelector(".modal");
     let overlay = document.querySelector(".overlay");
     let outcome = document.querySelector(".hit-miss-outcome");
-    let start = document.querySelector(".start");
-    let startContent = document.querySelector(".start-content");
     modal.style.display = "none";
     overlay.style.display = "grid";
     outcome.innerHTML = "";
-    start.style.display = "block";
-    startContent.style.border = "1px solid #888";
   };
 
   const gameOver = () => {
@@ -140,7 +109,7 @@ const Board = () => {
   };
 
   const attackComputer = (e) => {
-    if (playerTurn === true && game === true) {
+    if (playerTurn === true) {
       let updatedBoard = computerBoard;
       // Get Coord
       let coords = e.target.id.split(",");
@@ -161,7 +130,7 @@ const Board = () => {
   };
 
   const computerTurn = () => {
-    if (playerTurn === true && game === true) {
+    if (playerTurn === true) {
       let updatedBoard = playerBoard;
       let randomCoords = computer.getRandomCoords();
       let square = document.getElementById(randomCoords);

@@ -109,36 +109,27 @@ body {
 
 .start-content {
   background-color: #f5f5f5;
-  margin: 15vh auto;
+  margin: 20vh auto;
   padding: 20px;
   border: 1px solid #888;
   width: 500px;
-  height: 500px;
+  height: 400px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
 }
 
 .coord-inputs {
   display: flex;
   align-items: center;
   width: 80%;
-  margin-top: 1rem;
-}
-
-.coord-inputs label {
-  margin-right: 0.5rem;
+  margin-top: 1rem 0.5rem;
 }
 
 .coord-input {
-  margin: 0.5rem 0.2rem;
-  width: 40px;
-}
-
-.btn-place {
-  margin-top: 1rem;
+  margin: 0.5rem 0;
+  width: 30%;
 }
 
 .modal {
@@ -264,11 +255,6 @@ body {
     width: 50px;
     height: 50px;
   }
-
-  .start-content {
-    width: 400px;
-    text-align: center;
-  }
 }
 
 @media (max-width: 414px) {
@@ -317,10 +303,6 @@ body {
     border-radius: 20px;
     cursor: pointer;
   }
-
-  .start-content {
-    width: 300px;
-  }
 }
 
 @media (max-width: 375px) {
@@ -357,10 +339,5 @@ body {
 
   .winner-name {
     font-size: 30px;
-  }
-
-  .start-content {
-    margin: 2rem auto;
-    width: 250px;
   }
 }
