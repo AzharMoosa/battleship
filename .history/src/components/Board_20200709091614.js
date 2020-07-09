@@ -16,13 +16,10 @@ const Board = () => {
   const [computerBoard, setComputerBoard] = useState(Gameboard());
   const [playerTurn, setPlayerTurn] = useState(true);
 
-  const getOutcome = (hit) => {
-    let outcome = document.querySelector(".hit-miss-outcome");
-    if (hit === true) {
-      outcome.innerHTML = "Hit!";
-    } else {
-      outcome.innerHTML = "Miss!";
-    }
+  let outcome = "";
+
+  const getOutcome = () => {
+    return outcome;
   };
 
   const startGame = () => {
@@ -68,10 +65,8 @@ const Board = () => {
     setPlayerTurn(true);
     let modal = document.querySelector(".modal");
     let overlay = document.querySelector(".overlay");
-    let outcome = document.querySelector(".hit-miss-outcome");
     modal.style.display = "none";
     overlay.style.display = "grid";
-    outcome.innerHTML = "";
   };
 
   const gameOver = () => {
@@ -92,10 +87,10 @@ const Board = () => {
       player.attackEnemy(updatedBoard, parseInt(x), parseInt(y));
       if (computerBoard.grid[x][y] === "") {
         e.target.classList.add("ship-miss");
-        getOutcome(false);
+        outcome = "Miss!";
       } else {
         e.target.classList.add("ship-hit");
-        getOutcome(true);
+        outcome = "Hit!";
       }
       setComputerBoard(updatedBoard);
       setPlayerTurn(false);
@@ -124,8 +119,7 @@ const Board = () => {
   };
 
   return (
-    <div className='container'>
-      <HitMiss />
+    <div>
       <div className='game-boards'>
         {startGame()}
         <div className='game-board'>
@@ -162,6 +156,7 @@ const Board = () => {
           </div>
         </div>
       </div>
+      <HitMiss outcome={getOutcome()} />
       <Overlay resetGame={resetGame} />
     </div>
   );

@@ -3,8 +3,6 @@ import Square from "./Square";
 import PlainSquare from "./PlainSquare";
 import Player from "../functions/Player";
 import Gameboard from "../functions/Gameboard";
-import Overlay from "./Overlay";
-import HitMiss from "./HitMiss";
 import { v4 as uuidv4 } from "uuid";
 
 const Board = () => {
@@ -15,15 +13,6 @@ const Board = () => {
   const [playerBoard, setPlayerBoard] = useState(Gameboard());
   const [computerBoard, setComputerBoard] = useState(Gameboard());
   const [playerTurn, setPlayerTurn] = useState(true);
-
-  const getOutcome = (hit) => {
-    let outcome = document.querySelector(".hit-miss-outcome");
-    if (hit === true) {
-      outcome.innerHTML = "Hit!";
-    } else {
-      outcome.innerHTML = "Miss!";
-    }
-  };
 
   const startGame = () => {
     playerBoard.placeShip(0, 0, player.ships[0], 1);
@@ -47,38 +36,18 @@ const Board = () => {
     }
   };
 
-  const displayModal = (name) => {
+  const displayModal = () => {
     let modal = document.querySelector(".modal");
-    let title = document.querySelector(".winner-name");
-    let overlay = document.querySelector(".overlay");
     modal.style.display = "block";
-    overlay.style.display = "none";
-    if (name === "Computer") {
-      title.innerHTML = "Computer Wins";
-    } else if (name === "Player") {
-      title.innerHTML = "Player Wins";
-    }
-  };
-
-  const resetGame = () => {
-    setPlayer(Player(false));
-    setComputer(Player(true));
-    setPlayerBoard(Gameboard());
-    setComputerBoard(Gameboard());
-    setPlayerTurn(true);
-    let modal = document.querySelector(".modal");
-    let overlay = document.querySelector(".overlay");
-    let outcome = document.querySelector(".hit-miss-outcome");
-    modal.style.display = "none";
-    overlay.style.display = "grid";
-    outcome.innerHTML = "";
   };
 
   const gameOver = () => {
     if (playerBoard.allShipSunk(player.ships)) {
-      displayModal("Computer");
+      console.log("Computer Wins");
+      displayModal();
     } else if (computerBoard.allShipSunk(computer.ships)) {
-      displayModal("Player");
+      console.log("Player Wins");
+      displayModal();
     }
   };
 
@@ -92,10 +61,8 @@ const Board = () => {
       player.attackEnemy(updatedBoard, parseInt(x), parseInt(y));
       if (computerBoard.grid[x][y] === "") {
         e.target.classList.add("ship-miss");
-        getOutcome(false);
       } else {
         e.target.classList.add("ship-hit");
-        getOutcome(true);
       }
       setComputerBoard(updatedBoard);
       setPlayerTurn(false);
@@ -124,45 +91,41 @@ const Board = () => {
   };
 
   return (
-    <div className='container'>
-      <HitMiss />
-      <div className='game-boards'>
-        {startGame()}
-        <div className='game-board'>
-          {playerBoard.grid.map((col, j) =>
+    <div className='game-boards'>
+      {startGame()}
+      <div className='game-board'>
+        {playerBoard.grid.map((col, j) =>
+          col.map((elm, i) => (
+            <Square
+              key={uuidv4()}
+              elm={elm}
+              getBoardElm={getBoardElm}
+              id={`${i},${j}`}
+            />
+          ))
+        )}
+      </div>
+
+      <div className='comp'>
+        <div className='game-board comp-board'>
+          {computerBoard.grid.map((col, j) =>
             col.map((elm, i) => (
               <Square
                 key={uuidv4()}
                 elm={elm}
                 getBoardElm={getBoardElm}
+                attackComputer={attackComputer}
                 id={`${i},${j}`}
               />
             ))
           )}
         </div>
-
-        <div className='comp'>
-          <div className='game-board comp-board'>
-            {computerBoard.grid.map((col, j) =>
-              col.map((elm, i) => (
-                <Square
-                  key={uuidv4()}
-                  elm={elm}
-                  getBoardElm={getBoardElm}
-                  attackComputer={attackComputer}
-                  id={`${i},${j}`}
-                />
-              ))
-            )}
-          </div>
-          <div className='overlay game-board'>
-            {computerBoard.grid.map((col, j) =>
-              col.map((elm, i) => <PlainSquare key={uuidv4()} />)
-            )}
-          </div>
+        <div className='overlay game-board'>
+          {computerBoard.grid.map((col, j) =>
+            col.map((elm, i) => <PlainSquare key={uuidv4()} />)
+          )}
         </div>
       </div>
-      <Overlay resetGame={resetGame} />
     </div>
   );
 };

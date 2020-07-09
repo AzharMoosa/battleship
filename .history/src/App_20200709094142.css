@@ -85,12 +85,6 @@ body {
   grid-area: 1 / 1;
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-}
-
 .overlay {
   pointer-events: none;
 }
@@ -140,10 +134,7 @@ body {
 }
 
 .hit-miss {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 1rem;
+  text-align: center;
 }
 
 .hit-miss-outcome {
@@ -245,30 +236,9 @@ body {
     width: 37.5px;
     height: 37.5px;
   }
-
-  .modal-content-results {
-    width: 300px;
-  }
-
-  .winner-name {
-    font-size: 35px;
-  }
-
-  .btn-primary {
-    background-color: var(--bg-dark);
-    color: #fff;
-    width: 150px;
-    height: 50px;
-    font-size: 20px;
-    border: none;
-    outline: none;
-    font-family: "Russo One", sans-serif;
-    border-radius: 20px;
-    cursor: pointer;
-  }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 320px) {
   .header h1 {
     font-size: 35px;
   }
@@ -280,8 +250,8 @@ body {
   }
 
   .game-board {
-    width: 280px;
-    height: 280px;
+    width: 300px;
+    height: 300px;
   }
 
   .comp {
@@ -290,17 +260,7 @@ body {
 
   .square,
   .plain-square {
-    width: 35px;
-    height: 35px;
-  }
-}
-
-@media (max-width: 320px) {
-  .modal-content-results {
-    width: 250px;
-  }
-
-  .winner-name {
-    font-size: 30px;
+    width: 37.5px;
+    height: 37.5px;
   }
 }

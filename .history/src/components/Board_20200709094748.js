@@ -125,7 +125,6 @@ const Board = () => {
 
   return (
     <div className='container'>
-      <HitMiss />
       <div className='game-boards'>
         {startGame()}
         <div className='game-board'>
@@ -162,6 +161,7 @@ const Board = () => {
           </div>
         </div>
       </div>
+      <HitMiss />
       <Overlay resetGame={resetGame} />
     </div>
   );

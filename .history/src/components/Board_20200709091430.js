@@ -15,15 +15,7 @@ const Board = () => {
   const [playerBoard, setPlayerBoard] = useState(Gameboard());
   const [computerBoard, setComputerBoard] = useState(Gameboard());
   const [playerTurn, setPlayerTurn] = useState(true);
-
-  const getOutcome = (hit) => {
-    let outcome = document.querySelector(".hit-miss-outcome");
-    if (hit === true) {
-      outcome.innerHTML = "Hit!";
-    } else {
-      outcome.innerHTML = "Miss!";
-    }
-  };
+  const [outcome, setOutcome] = useState("");
 
   const startGame = () => {
     playerBoard.placeShip(0, 0, player.ships[0], 1);
@@ -68,10 +60,8 @@ const Board = () => {
     setPlayerTurn(true);
     let modal = document.querySelector(".modal");
     let overlay = document.querySelector(".overlay");
-    let outcome = document.querySelector(".hit-miss-outcome");
     modal.style.display = "none";
     overlay.style.display = "grid";
-    outcome.innerHTML = "";
   };
 
   const gameOver = () => {
@@ -92,10 +82,10 @@ const Board = () => {
       player.attackEnemy(updatedBoard, parseInt(x), parseInt(y));
       if (computerBoard.grid[x][y] === "") {
         e.target.classList.add("ship-miss");
-        getOutcome(false);
+        setOutcome("Miss!");
       } else {
         e.target.classList.add("ship-hit");
-        getOutcome(true);
+        setOutcome("Hit!");
       }
       setComputerBoard(updatedBoard);
       setPlayerTurn(false);
@@ -114,6 +104,7 @@ const Board = () => {
       computer.computerAttack(updatedBoard, x, y);
       if (playerBoard.grid[x][y] === "") {
         square.classList.add("ship-miss");
+        setOutcome("Miss!");
       } else {
         square.classList.add("ship-hit");
       }
@@ -124,8 +115,7 @@ const Board = () => {
   };
 
   return (
-    <div className='container'>
-      <HitMiss />
+    <div>
       <div className='game-boards'>
         {startGame()}
         <div className='game-board'>
@@ -162,6 +152,7 @@ const Board = () => {
           </div>
         </div>
       </div>
+      <HitMiss outcome={outcome} />
       <Overlay resetGame={resetGame} />
     </div>
   );

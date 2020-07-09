@@ -143,7 +143,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 1rem;
 }
 
 .hit-miss-outcome {
@@ -218,7 +217,7 @@ body {
     width: 50px;
     height: 50px;
   }
-}
+
 
 @media (max-width: 414px) {
   .header h1 {
@@ -244,6 +243,10 @@ body {
   .plain-square {
     width: 37.5px;
     height: 37.5px;
+  }
+
+  .hit-miss {
+    margin-top: 9rem;
   }
 
   .modal-content-results {
@@ -293,9 +296,17 @@ body {
     width: 35px;
     height: 35px;
   }
+
+  .hit-miss {
+    margin-top: 10rem;
+  }
 }
 
 @media (max-width: 320px) {
+  .hit-miss {
+    margin-top: 14rem;
+  }
+
   .modal-content-results {
     width: 250px;
   }

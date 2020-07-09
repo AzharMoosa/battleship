@@ -88,7 +88,7 @@ body {
 .container {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100%;
 }
 
 .overlay {
@@ -143,7 +143,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 1rem;
 }
 
 .hit-miss-outcome {
@@ -191,6 +190,10 @@ body {
     width: 62.5px;
     height: 62.5px;
   }
+
+  .hit-miss {
+    margin-top: 8rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -218,6 +221,10 @@ body {
     width: 50px;
     height: 50px;
   }
+
+  .hit-miss {
+    margin-top: 9rem;
+  }
 }
 
 @media (max-width: 414px) {
@@ -244,6 +251,10 @@ body {
   .plain-square {
     width: 37.5px;
     height: 37.5px;
+  }
+
+  .hit-miss {
+    margin-top: 9rem;
   }
 
   .modal-content-results {
@@ -293,9 +304,17 @@ body {
     width: 35px;
     height: 35px;
   }
+
+  .hit-miss {
+    margin-top: 10rem;
+  }
 }
 
 @media (max-width: 320px) {
+  .hit-miss {
+    margin-top: 14rem;
+  }
+
   .modal-content-results {
     width: 250px;
   }

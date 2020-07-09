@@ -68,10 +68,8 @@ const Board = () => {
     setPlayerTurn(true);
     let modal = document.querySelector(".modal");
     let overlay = document.querySelector(".overlay");
-    let outcome = document.querySelector(".hit-miss-outcome");
     modal.style.display = "none";
     overlay.style.display = "grid";
-    outcome.innerHTML = "";
   };
 
   const gameOver = () => {
@@ -124,8 +122,7 @@ const Board = () => {
   };
 
   return (
-    <div className='container'>
-      <HitMiss />
+    <div>
       <div className='game-boards'>
         {startGame()}
         <div className='game-board'>
@@ -162,6 +159,7 @@ const Board = () => {
           </div>
         </div>
       </div>
+      <HitMiss />
       <Overlay resetGame={resetGame} />
     </div>
   );
