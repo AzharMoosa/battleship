@@ -139,7 +139,6 @@ body {
 
 .headings {
   display: flex;
-  align-items: center;
   width: 50%;
   font-size: 10px;
 }

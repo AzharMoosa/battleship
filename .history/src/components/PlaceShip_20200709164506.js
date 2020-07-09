@@ -3,19 +3,19 @@ import React, { useState } from "react";
 const PlaceShip = ({ placeShipOnBoard }) => {
   const [carrierX, setCarrierX] = useState("0");
   const [carrierY, setCarrierY] = useState("0");
-  const [carrierO, setCarrierO] = useState("1");
+  const [carrierO, setCarrierO] = useState("0");
   const [battleshipX, setBattleshipX] = useState("4");
   const [battleshipY, setBattleshipY] = useState("4");
-  const [battleshipO, setBattleshipO] = useState("1");
+  const [battleshipO, setBattleshipO] = useState("0");
   const [cruiserX, setCruiserX] = useState("3");
   const [cruiserY, setCruiserY] = useState("0");
-  const [cruiserO, setCruiserO] = useState("1");
+  const [cruiserO, setCruiserO] = useState("0");
   const [submarineX, setSubmarineX] = useState("5");
   const [submarineY, setSubmarineY] = useState("0");
-  const [submarineO, setSubmarineO] = useState("1");
+  const [submarineO, setSubmarineO] = useState("0");
   const [destroyerX, setDestroyerX] = useState("7");
   const [destroyerY, setDestroyerY] = useState("0");
-  const [destroyerO, setDestroyerO] = useState("1");
+  const [destroyerO, setDestroyerO] = useState("0");
 
   const updateBoard = () => {
     placeShipOnBoard(
@@ -41,13 +41,6 @@ const PlaceShip = ({ placeShipOnBoard }) => {
     <div className='start'>
       <div className='start-content'>
         <h1>Welcome to Battleship</h1>
-        <div className='headings'>
-          <h3>X</h3>
-          <h3>Y</h3>
-          <h3>Pos</h3>
-          <h3>0 Horizontal</h3>
-          <h3>1 Vertical</h3>
-        </div>
         <div className='coord-inputs'>
           <label htmlFor='carrier'>Carrier</label>
           <input
@@ -67,14 +60,6 @@ const PlaceShip = ({ placeShipOnBoard }) => {
             min='0'
             max='7'
             value={carrierY}
-          />
-          <input
-            onChange={(e) => setCarrierO(e.target.value)}
-            className='coord-input'
-            type='number'
-            min='0'
-            max='1'
-            value={carrierO}
           />
         </div>
         <div className='coord-inputs'>
@@ -97,14 +82,6 @@ const PlaceShip = ({ placeShipOnBoard }) => {
             className='coord-input'
             value={battleshipY}
           />
-          <input
-            onChange={(e) => setBattleshipO(e.target.value)}
-            className='coord-input'
-            type='number'
-            min='0'
-            max='1'
-            value={battleshipO}
-          />
         </div>
         <div className='coord-inputs'>
           <label htmlFor='cruiser'>Cruiser</label>
@@ -125,14 +102,6 @@ const PlaceShip = ({ placeShipOnBoard }) => {
             onChange={(e) => setCruiserY(e.target.value)}
             className='coord-input'
             value={cruiserY}
-          />
-          <input
-            onChange={(e) => setCruiserO(e.target.value)}
-            className='coord-input'
-            type='number'
-            min='0'
-            max='1'
-            value={cruiserO}
           />
         </div>
         <div className='coord-inputs'>
@@ -155,14 +124,6 @@ const PlaceShip = ({ placeShipOnBoard }) => {
             className='coord-input'
             value={submarineY}
           />
-          <input
-            onChange={(e) => setSubmarineO(e.target.value)}
-            className='coord-input'
-            type='number'
-            min='0'
-            max='1'
-            value={submarineO}
-          />
         </div>
         <div className='coord-inputs'>
           <label htmlFor='destroyer'>Destroyer</label>
@@ -183,14 +144,6 @@ const PlaceShip = ({ placeShipOnBoard }) => {
             onChange={(e) => setDestroyerY(e.target.value)}
             className='coord-input'
             value={destroyerY}
-          />
-          <input
-            onChange={(e) => setDestroyerO(e.target.value)}
-            className='coord-input'
-            type='number'
-            min='0'
-            max='1'
-            value={destroyerO}
           />
         </div>
         <button className='btn-primary btn-place' onClick={updateBoard}>

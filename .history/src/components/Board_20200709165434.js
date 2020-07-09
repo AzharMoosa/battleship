@@ -57,28 +57,28 @@ const Board = () => {
       parseInt(battleshipX),
       parseInt(battleshipY),
       player.ships[1],
-      parseInt(battleshipO)
+      1
     );
 
     let cruiser = playerBoard.placeShip(
       parseInt(cruiserX),
       parseInt(cruiserY),
       player.ships[2],
-      parseInt(cruiserO)
+      parseInt(battleshipO)
     );
 
     let submarine = playerBoard.placeShip(
       parseInt(submarineX),
       parseInt(submarineY),
       player.ships[3],
-      parseInt(submarineO)
+      1
     );
 
     let destoryer = playerBoard.placeShip(
       parseInt(destroyerX),
       parseInt(destroyerY),
       player.ships[4],
-      parseInt(destroyerO)
+      1
     );
 
     computerBoard.placeShip(0, 0, computer.ships[0], 0);

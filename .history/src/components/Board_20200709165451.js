@@ -78,7 +78,7 @@ const Board = () => {
       parseInt(destroyerX),
       parseInt(destroyerY),
       player.ships[4],
-      parseInt(destroyerO)
+      1
     );
 
     computerBoard.placeShip(0, 0, computer.ships[0], 0);
