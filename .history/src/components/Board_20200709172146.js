@@ -81,7 +81,7 @@ const Board = () => {
       parseInt(destroyerO)
     );
 
-    computerPlaceShips(Math.floor(Math.random() * (2 + 1)));
+    computerPlaceShips(2);
 
     if (carrier && battleship && cruiser && submarine && destoryer) {
       start.style.display = "none";
@@ -107,10 +107,10 @@ const Board = () => {
       computerBoard.placeShip(6, 7, computer.ships[4], 0);
     } else if (placement === 2) {
       computerBoard.placeShip(0, 2, computer.ships[0], 1);
-      computerBoard.placeShip(2, 0, computer.ships[1], 0);
-      computerBoard.placeShip(2, 2, computer.ships[2], 0);
-      computerBoard.placeShip(7, 3, computer.ships[3], 1);
-      computerBoard.placeShip(3, 5, computer.ships[4], 0);
+      computerBoard.placeShip(2, 3, computer.ships[1], 1);
+      computerBoard.placeShip(4, 4, computer.ships[2], 0);
+      computerBoard.placeShip(6, 6, computer.ships[3], 1);
+      computerBoard.placeShip(6, 7, computer.ships[4], 0);
     }
   };
 

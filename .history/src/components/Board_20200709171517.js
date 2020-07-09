@@ -46,6 +46,7 @@ const Board = () => {
   ) => {
     let start = document.querySelector(".start");
     let startContent = document.querySelector(".start-content");
+    let computerPlace;
     let carrier = playerBoard.placeShip(
       parseInt(carrierX),
       parseInt(carrierY),
@@ -81,7 +82,9 @@ const Board = () => {
       parseInt(destroyerO)
     );
 
-    computerPlaceShips(Math.floor(Math.random() * (2 + 1)));
+    do {
+      computerPlace = computerPlaceShips();
+    } while (computerPlace === false);
 
     if (carrier && battleship && cruiser && submarine && destoryer) {
       start.style.display = "none";
@@ -92,25 +95,37 @@ const Board = () => {
     }
   };
 
-  const computerPlaceShips = (placement) => {
-    if (placement === 0) {
-      computerBoard.placeShip(0, 0, computer.ships[0], 0);
-      computerBoard.placeShip(2, 2, computer.ships[1], 1);
-      computerBoard.placeShip(4, 4, computer.ships[2], 0);
-      computerBoard.placeShip(0, 4, computer.ships[3], 1);
-      computerBoard.placeShip(5, 6, computer.ships[4], 0);
-    } else if (placement === 1) {
-      computerBoard.placeShip(3, 0, computer.ships[0], 0);
-      computerBoard.placeShip(2, 3, computer.ships[1], 1);
-      computerBoard.placeShip(4, 4, computer.ships[2], 0);
-      computerBoard.placeShip(0, 2, computer.ships[3], 1);
-      computerBoard.placeShip(6, 7, computer.ships[4], 0);
-    } else if (placement === 2) {
-      computerBoard.placeShip(0, 2, computer.ships[0], 1);
-      computerBoard.placeShip(2, 0, computer.ships[1], 0);
-      computerBoard.placeShip(2, 2, computer.ships[2], 0);
-      computerBoard.placeShip(7, 3, computer.ships[3], 1);
-      computerBoard.placeShip(3, 5, computer.ships[4], 0);
+  const randomOrientation = () => {
+    return Math.floor(Math.random() * (1 - 0 + 1)) + 0;
+  };
+
+  const computerPlaceShips = () => {
+    let carrier = computerBoard.placeShip(0, 0, computer.ships[0], 0);
+    let battleship = computerBoard.placeShip(2, 2, computer.ships[1], 1);
+    let cruiser = computerBoard.placeShip(
+      4,
+      4,
+      computer.ships[2],
+      randomOrientation()
+    );
+    let submarine = computerBoard.placeShip(
+      0,
+      4,
+      computer.ships[3],
+      randomOrientation()
+    );
+    let destoryer = computerBoard.placeShip(
+      5,
+      6,
+      computer.ships[4],
+      randomOrientation()
+    );
+
+    if (carrier && battleship && cruiser && submarine && destoryer) {
+      return true;
+    } else {
+      setComputerBoard(Gameboard());
+      return false;
     }
   };
 

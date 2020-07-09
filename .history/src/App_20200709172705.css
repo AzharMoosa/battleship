@@ -277,8 +277,17 @@ body {
   }
 
   .start-content {
-    width: 450px;
+    width: 400px;
     text-align: center;
+  }
+
+  .headings {
+    width: 60%;
+    font-size: 10px;
+  }
+
+  .headings h3 {
+    margin: 1rem 0.5rem 0 0.5rem;
   }
 }
 
@@ -332,17 +341,6 @@ body {
   .start-content {
     width: 300px;
   }
-  .headings {
-    width: 30%;
-  }
-
-  .horizontal-text {
-    display: none;
-  }
-
-  .vertical-text {
-    display: none;
-  }
 }
 
 @media (max-width: 375px) {
@@ -384,13 +382,5 @@ body {
   .start-content {
     margin: 2rem auto;
     width: 250px;
-  }
-
-  .headings {
-    width: 20%;
-  }
-
-  .headings h3 {
-    margin: 1rem 0.8rem 0 0.8rem;
   }
 }

@@ -332,15 +332,8 @@ body {
   .start-content {
     width: 300px;
   }
-  .headings {
-    width: 30%;
-  }
 
   .horizontal-text {
-    display: none;
-  }
-
-  .vertical-text {
     display: none;
   }
 }
@@ -384,13 +377,5 @@ body {
   .start-content {
     margin: 2rem auto;
     width: 250px;
-  }
-
-  .headings {
-    width: 20%;
-  }
-
-  .headings h3 {
-    margin: 1rem 0.8rem 0 0.8rem;
   }
 }

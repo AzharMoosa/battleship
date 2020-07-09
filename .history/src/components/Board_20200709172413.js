@@ -81,7 +81,7 @@ const Board = () => {
       parseInt(destroyerO)
     );
 
-    computerPlaceShips(Math.floor(Math.random() * (2 + 1)));
+    computerPlaceShips(Math.floor(Math.random() * (2 - 0 + 1)));
 
     if (carrier && battleship && cruiser && submarine && destoryer) {
       start.style.display = "none";

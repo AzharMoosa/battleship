@@ -46,7 +46,7 @@ const PlaceShip = ({ placeShipOnBoard }) => {
           <h3>Y</h3>
           <h3>Pos</h3>
           <h3 className='horizontal-text'>0 Horizontal</h3>
-          <h3 className='vertical-text'>1 Vertical</h3>
+          <h3>1 Vertical</h3>
         </div>
         <div className='coord-inputs'>
           <label htmlFor='carrier'>Carrier</label>

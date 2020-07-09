@@ -280,6 +280,15 @@ body {
     width: 450px;
     text-align: center;
   }
+
+  .headings {
+    width: 40%;
+    font-size: 8px;
+  }
+
+  .headings h3 {
+    margin: 1rem 1rem 0 1rem;
+  }
 }
 
 @media (max-width: 414px) {
@@ -332,17 +341,6 @@ body {
   .start-content {
     width: 300px;
   }
-  .headings {
-    width: 30%;
-  }
-
-  .horizontal-text {
-    display: none;
-  }
-
-  .vertical-text {
-    display: none;
-  }
 }
 
 @media (max-width: 375px) {
@@ -384,13 +382,5 @@ body {
   .start-content {
     margin: 2rem auto;
     width: 250px;
-  }
-
-  .headings {
-    width: 20%;
-  }
-
-  .headings h3 {
-    margin: 1rem 0.8rem 0 0.8rem;
   }
 }
