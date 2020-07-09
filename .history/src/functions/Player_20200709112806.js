@@ -32,7 +32,7 @@ const Player = (ai) => {
     return false;
   };
 
-  const getRandomCoords = () => {
+  const getRandomCoords = (gameboard) => {
     let maximum = 7;
     let minimum = 0;
     let x = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;

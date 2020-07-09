@@ -163,15 +163,13 @@ const Board = () => {
   const computerTurn = () => {
     if (playerTurn === true && game === true) {
       let updatedBoard = playerBoard;
-      let randomCoords;
-      let square;
+      let randomCoords = computer.getRandomCoords();
+      let currentSquare = document.getElementById(randomCoords);
+      let square = document.getElementById(randomCoords);
       do {
-        randomCoords = computer.getRandomCoords();
-        square = document.getElementById(randomCoords);
-      } while (
-        square.classList.contains("ship-miss") ||
-        square.classList.contains("ship-hit")
-      );
+        let randomCoords = computer.getRandomCoords();
+        let currentSquare = document.getElementById(randomCoords);
+      } while (currentSquare.classList.contains());
       let coords = randomCoords.split(",");
       let x = coords[1];
       let y = coords[0];

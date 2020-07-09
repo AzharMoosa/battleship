@@ -164,14 +164,11 @@ const Board = () => {
     if (playerTurn === true && game === true) {
       let updatedBoard = playerBoard;
       let randomCoords;
-      let square;
+      let square = document.getElementById(randomCoords);
       do {
         randomCoords = computer.getRandomCoords();
         square = document.getElementById(randomCoords);
-      } while (
-        square.classList.contains("ship-miss") ||
-        square.classList.contains("ship-hit")
-      );
+      } while (square.classList.contains());
       let coords = randomCoords.split(",");
       let x = coords[1];
       let y = coords[0];
